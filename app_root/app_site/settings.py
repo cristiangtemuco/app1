@@ -27,6 +27,23 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+#CRISTIAN SECTION
+
+#---para sweet alerts-----
+MESSAGE_STORAGE = "django.contrib.messages.storage.cookie.CookieStorage"
+
+#---para el login -----
+LOGIN_REDIRECT_URL = "/home"
+LOGOUT_REDIRECT_URL = "/home"
+
+#---Crispy
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+#---PARA TRABAJAR CON IMAGENES
+import os
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+#-----------------------------------------------------------
 
 # Application definition
 
@@ -37,7 +54,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    #---Agrego la app
+    'app',
+    'django.contrib.humanize',
+    'crispy_forms',
 ]
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -103,7 +125,8 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.0/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+#---CAMBIO DE IDIOMA---
+LANGUAGE_CODE = 'es'
 
 TIME_ZONE = 'UTC'
 
